@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RPOUT_Prt_06" targetNamespace="http://tempuri.org/RPOUT_Prt_06.xsd" xmlns:mstns="http://tempuri.org/RPOUT_Prt_06.xsd" xmlns="http://tempuri.org/RPOUT_Prt_06.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="CACIDB" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CACIDB (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.CACIDB.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RPOUT_Prt_06TableAdapter" GeneratorDataComponentClassName="RPOUT_Prt_06TableAdapter" Name="RPOUT_Prt_06" UserDataComponentName="RPOUT_Prt_06TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CACIDB (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText> select '' as Inde,'' as Times_YYYY,'' as Times_MMDD, 
+       Allowance.Aow_Code,
+       dbo.chgToChnChtDate(MtgTimes.Times_Bgn) as Times_Bgn,
+       Committee.Comm_Name,
+       Company.Com_Name,
+       ApPjContext.ApPj_Name,
+       (select Sys_CdText from SysCode where Sys_CdKind='C' and Sys_CdType='K' and Sys_CdCode =AowCoach.AwCh_ChNeed) as AwCh_Need,
+       case AowCoach.AwCh_ChNeed when 'FA' then '■' else '□' end + '財務' as AC1,
+       case AowCoach.AwCh_ChNeed when 'LW' then '■' else '□' end + '法律' as AC2,
+       case AowCoach.AwCh_ChNeed when 'MG' then '■' else '□' end + '經營管理' as AC3,
+       case AowCoach.AwCh_ChNeed when 'MK' then '■' else '□' end + '行銷' as AC4,
+       case AowCoach.AwCh_ChNeed when 'RD' then '■' else '□' end + '創新研發' as AC5,
+       AowCoach.AwCh_Agenda,
+       AowCoach.AwCh_SgPoint
+       from Project ,Allowance, ApPjContext , AowCoach ,MtgTimes, Committee ,Company 
+       where 1=1  </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Aow_Code" DataSetColumn="Aow_Code" />
+              <Mapping SourceColumn="Comm_Name" DataSetColumn="Comm_Name" />
+              <Mapping SourceColumn="Com_Name" DataSetColumn="Com_Name" />
+              <Mapping SourceColumn="ApPj_Name" DataSetColumn="ApPj_Name" />
+              <Mapping SourceColumn="AwCh_Need" DataSetColumn="AwCh_Need" />
+              <Mapping SourceColumn="AwCh_Agenda" DataSetColumn="AwCh_Agenda" />
+              <Mapping SourceColumn="AwCh_SgPoint" DataSetColumn="AwCh_SgPoint" />
+              <Mapping SourceColumn="Times_Bgn" DataSetColumn="Times_Bgn" />
+              <Mapping SourceColumn="AC1" DataSetColumn="AC1" />
+              <Mapping SourceColumn="AC2" DataSetColumn="AC2" />
+              <Mapping SourceColumn="AC3" DataSetColumn="AC3" />
+              <Mapping SourceColumn="AC4" DataSetColumn="AC4" />
+              <Mapping SourceColumn="AC5" DataSetColumn="AC5" />
+              <Mapping SourceColumn="Inde" DataSetColumn="Inde" />
+              <Mapping SourceColumn="Times_YYYY" DataSetColumn="Times_YYYY" />
+              <Mapping SourceColumn="Times_MMDD" DataSetColumn="Times_MMDD" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EvaluationsTableAdapter" GeneratorDataComponentClassName="EvaluationsTableAdapter" Name="Evaluations" UserDataComponentName="EvaluationsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CACIDB (Web.config)" DbObjectName="CACIDB.dbo.Evaluations" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Aow_Code, Eval_Note, '' AS inde FROM Evaluations</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Aow_Code" DataSetColumn="Aow_Code" />
+              <Mapping SourceColumn="Eval_Note" DataSetColumn="Eval_Note" />
+              <Mapping SourceColumn="inde" DataSetColumn="inde" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RPOUT_Prt_06" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="RPOUT_Prt_06" msprop:Generator_UserDSName="RPOUT_Prt_06">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RPOUT_Prt_06" msprop:Generator_TableClassName="RPOUT_Prt_06DataTable" msprop:Generator_TableVarName="tableRPOUT_Prt_06" msprop:Generator_TablePropName="_RPOUT_Prt_06" msprop:Generator_RowDeletingName="RPOUT_Prt_06RowDeleting" msprop:Generator_UserTableName="RPOUT_Prt_06" msprop:Generator_RowChangingName="RPOUT_Prt_06RowChanging" msprop:Generator_RowEvHandlerName="RPOUT_Prt_06RowChangeEventHandler" msprop:Generator_RowDeletedName="RPOUT_Prt_06RowDeleted" msprop:Generator_RowEvArgName="RPOUT_Prt_06RowChangeEvent" msprop:Generator_RowChangedName="RPOUT_Prt_06RowChanged" msprop:Generator_RowClassName="RPOUT_Prt_06Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Aow_Code" msprop:Generator_ColumnVarNameInTable="columnAow_Code" msprop:Generator_ColumnPropNameInRow="Aow_Code" msprop:Generator_ColumnPropNameInTable="Aow_CodeColumn" msprop:Generator_UserColumnName="Aow_Code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Comm_Name" msprop:Generator_ColumnVarNameInTable="columnComm_Name" msprop:Generator_ColumnPropNameInRow="Comm_Name" msprop:Generator_ColumnPropNameInTable="Comm_NameColumn" msprop:Generator_UserColumnName="Comm_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_Name" msprop:Generator_ColumnVarNameInTable="columnCom_Name" msprop:Generator_ColumnPropNameInRow="Com_Name" msprop:Generator_ColumnPropNameInTable="Com_NameColumn" msprop:Generator_UserColumnName="Com_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApPj_Name" msprop:Generator_ColumnVarNameInTable="columnApPj_Name" msprop:Generator_ColumnPropNameInRow="ApPj_Name" msprop:Generator_ColumnPropNameInTable="ApPj_NameColumn" msprop:Generator_UserColumnName="ApPj_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AwCh_Need" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAwCh_Need" msprop:Generator_ColumnPropNameInRow="AwCh_Need" msprop:Generator_ColumnPropNameInTable="AwCh_NeedColumn" msprop:Generator_UserColumnName="AwCh_Need" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AwCh_Agenda" msprop:Generator_ColumnVarNameInTable="columnAwCh_Agenda" msprop:Generator_ColumnPropNameInRow="AwCh_Agenda" msprop:Generator_ColumnPropNameInTable="AwCh_AgendaColumn" msprop:Generator_UserColumnName="AwCh_Agenda" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AwCh_SgPoint" msprop:Generator_ColumnVarNameInTable="columnAwCh_SgPoint" msprop:Generator_ColumnPropNameInRow="AwCh_SgPoint" msprop:Generator_ColumnPropNameInTable="AwCh_SgPointColumn" msprop:Generator_UserColumnName="AwCh_SgPoint" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Times_Bgn" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTimes_Bgn" msprop:Generator_ColumnPropNameInRow="Times_Bgn" msprop:Generator_ColumnPropNameInTable="Times_BgnColumn" msprop:Generator_UserColumnName="Times_Bgn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AC1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAC1" msprop:Generator_ColumnPropNameInRow="AC1" msprop:Generator_ColumnPropNameInTable="AC1Column" msprop:Generator_UserColumnName="AC1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AC2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAC2" msprop:Generator_ColumnPropNameInRow="AC2" msprop:Generator_ColumnPropNameInTable="AC2Column" msprop:Generator_UserColumnName="AC2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AC3" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAC3" msprop:Generator_ColumnPropNameInRow="AC3" msprop:Generator_ColumnPropNameInTable="AC3Column" msprop:Generator_UserColumnName="AC3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AC4" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAC4" msprop:Generator_ColumnPropNameInRow="AC4" msprop:Generator_ColumnPropNameInTable="AC4Column" msprop:Generator_UserColumnName="AC4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AC5" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAC5" msprop:Generator_ColumnPropNameInRow="AC5" msprop:Generator_ColumnPropNameInTable="AC5Column" msprop:Generator_UserColumnName="AC5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Inde" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInde" msprop:Generator_ColumnPropNameInRow="Inde" msprop:Generator_ColumnPropNameInTable="IndeColumn" msprop:Generator_UserColumnName="Inde" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Times_YYYY" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTimes_YYYY" msprop:Generator_ColumnPropNameInRow="Times_YYYY" msprop:Generator_ColumnPropNameInTable="Times_YYYYColumn" msprop:Generator_UserColumnName="Times_YYYY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Times_MMDD" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTimes_MMDD" msprop:Generator_ColumnPropNameInRow="Times_MMDD" msprop:Generator_ColumnPropNameInTable="Times_MMDDColumn" msprop:Generator_UserColumnName="Times_MMDD" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Evaluations" msprop:Generator_TableClassName="EvaluationsDataTable" msprop:Generator_TableVarName="tableEvaluations" msprop:Generator_TablePropName="Evaluations" msprop:Generator_RowDeletingName="EvaluationsRowDeleting" msprop:Generator_UserTableName="Evaluations" msprop:Generator_RowChangingName="EvaluationsRowChanging" msprop:Generator_RowEvHandlerName="EvaluationsRowChangeEventHandler" msprop:Generator_RowDeletedName="EvaluationsRowDeleted" msprop:Generator_RowEvArgName="EvaluationsRowChangeEvent" msprop:Generator_RowChangedName="EvaluationsRowChanged" msprop:Generator_RowClassName="EvaluationsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Aow_Code" msprop:Generator_ColumnVarNameInTable="columnAow_Code" msprop:Generator_ColumnPropNameInRow="Aow_Code" msprop:Generator_ColumnPropNameInTable="Aow_CodeColumn" msprop:Generator_UserColumnName="Aow_Code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Eval_Note" msprop:Generator_ColumnVarNameInTable="columnEval_Note" msprop:Generator_ColumnPropNameInRow="Eval_Note" msprop:Generator_ColumnPropNameInTable="Eval_NoteColumn" msprop:Generator_UserColumnName="Eval_Note" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="inde" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columninde" msprop:Generator_ColumnPropNameInRow="inde" msprop:Generator_ColumnPropNameInTable="indeColumn" msprop:Generator_UserColumnName="inde" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RPOUT_Prt_06" />
+      <xs:field xpath="mstns:Aow_Code" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="RPOUT_Prt_06_Evaluations" msdata:parent="RPOUT_Prt_06" msdata:child="Evaluations" msdata:parentkey="Aow_Code" msdata:childkey="Aow_Code" msprop:Generator_UserChildTable="Evaluations" msprop:Generator_ChildPropName="GetEvaluationsRows" msprop:Generator_UserParentTable="RPOUT_Prt_06" msprop:Generator_UserRelationName="RPOUT_Prt_06_Evaluations" msprop:Generator_RelationVarName="relationRPOUT_Prt_06_Evaluations" msprop:Generator_ParentPropName="RPOUT_Prt_06Row" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

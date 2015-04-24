@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode title="文化創意產業資料庫管理系統" moduleName="文化創意產業資料庫管理系統" description="回到首頁" target="mainFrame" url="">
+    <siteMapNode id="1" title="1.專案管理作業" moduleName="1.專案管理作業" description="1.專案管理作業" target="mainFrame" url="">
+      <siteMapNode id="1.1.1" title="1.1.1 範本資料查詢畫面" moduleName="1.1.1 範本資料查詢畫面" description="1.1.1 範本資料查詢畫面" target="mainFrame" url="Forms/Project/PjSamples_Qry_01.aspx" />
+      <siteMapNode id="1.2.1" title="1.2.1 專案資料查詢" moduleName="1.2.1 專案資料查詢" description="1.2.1 專案資料查詢" target="mainFrame" url="Forms/Project/Project_Qry_01.aspx" />
+      <siteMapNode id="1.2.2" title="1.2.2 獎補助專案資料查看" moduleName="1.2.2 獎補助專案資料查看" description="1.2.2 獎補助專案資料查看" target="mainFrame" url="Forms/Project/Project_Lis_01.aspx" />
+      <siteMapNode id="1.2.3" title="1.2.3 獎補助專案資料新增" moduleName="1.2.3 獎補助專案資料新增" description="1.2.3 獎補助專案資料新增" target="mainFrame" url="Forms/Project/Project_Ins_01.aspx" />
+      <siteMapNode id="1.2.4" title="1.2.4 獎補助專案資料修改" moduleName="1.2.4 獎補助專案資料修改" description="1.2.4 獎補助專案資料修改" target="mainFrame" url="Forms/Project/Project_Upd_01.aspx" />
+      <siteMapNode id="1.2.5" title="1.2.5 輔導專案資料查看" moduleName="1.2.5 輔導專案資料查看" description="1.2.5 輔導專案資料查看" target="mainFrame" url="Forms/Project/Project_Lis_02.aspx" />
+      <siteMapNode id="1.2.6" title="1.2.6 輔導專案資料新增" moduleName="1.2.6 輔導專案資料新增" description="1.2.6 輔導專案資料新增" target="mainFrame" url="Forms/Project/Project_Ins_02.aspx" />
+      <siteMapNode id="1.2.7" title="1.2.7 輔導專案資料修改" moduleName="1.2.7 輔導專案資料修改" description="1.2.7 輔導專案資料修改" target="mainFrame" url="Forms/Project/Project_Upd_02.aspx" />
+    </siteMapNode>
+    <siteMapNode id="2" title="2.獎補助作業" moduleName="2.獎補助作業" description="2.獎補助作業" target="mainFrame" url="">
+      <siteMapNode id="2.1.1" title="2.1.1 獎補助作業─內網資料查詢" moduleName="2.1.1 獎補助作業─內網資料查詢" description="2.1.1 獎補助作業─內網資料查詢" target="mainFrame" url="Forms/Allowance/Allowance_Qry_01.aspx" />
+      <siteMapNode id="2.1.10" title="2.1.10 委員遴選作業─資料查詢" moduleName="2.1.10 委員遴選作業─資料查詢" description="2.1.10 委員遴選作業─資料查詢" target="mainFrame" url="Forms/Allowance/PjJudge_Qry_01.aspx" />
+    </siteMapNode>
+    <siteMapNode id="3" title="3.顧問委員管理作業" moduleName="3.顧問委員管理作業" description="3.顧問委員管理作業" target="mainFrame" url="">
+      <siteMapNode id="3.1.1" title="3.1.1 顧問委員管理作業─資料查詢" moduleName="3.1.1 顧問委員管理作業─資料查詢" description="3.1.1 顧問委員管理作業─資料查詢" target="mainFrame" url="Forms/Committee/Committee_Qry_01.aspx" />
+      <siteMapNode id="3.1.3" title="3.1.3 顧問委員管理作業─資料新增" moduleName="3.1.3 顧問委員管理作業─資料新增" description="3.1.3 顧問委員管理作業─資料新增" target="mainFrame" url="Forms/Committee/Committee_Ins_01.aspx" />
+      <siteMapNode id="3.1.4" title="3.1.4 顧問委員管理作業─資料修改" moduleName="3.1.4 顧問委員管理作業─資料修改" description="3.1.4 顧問委員管理作業─資料修改" target="mainFrame" url="Forms/Committee/Committee_Upd_01.aspx" />
+      <siteMapNode id="3.2.1" title="3.2.1 會議管理作業─資料查詢" moduleName="3.2.1 會議管理作業─資料查詢" description="3.2.1 會議管理作業─資料查詢" target="mainFrame" url="Forms/Meeting/Meeting_Qry_01.aspx" />
+      <siteMapNode id="3.2.3" title="3.2.3 會議管理作業─資料新增" moduleName="3.2.3 會議管理作業─資料新增" description="3.2.3 會議管理作業─資料新增" target="mainFrame" url="Forms/Meeting/Meeting_Ins_01.aspx" />
+    </siteMapNode>
+    <siteMapNode id="4" title="4.電話記錄作業" moduleName="4.電話記錄作業" description="4.電話記錄作業" target="mainFrame" url="">
+      <siteMapNode id="4.1.1" title="4.1.1 電話記錄作業─資料查詢畫面" moduleName="4.1.1 電話記錄作業─資料查詢畫面" description="4.1.1 電話記錄作業─資料查詢畫面" target="mainFrame" url="Forms/PhoneRec/PhoneRec_Qry_01.aspx" />
+      <siteMapNode id="4.1.2" title="4.1.2 電話記錄作業─資料查看畫面" moduleName="4.1.2 電話記錄作業─資料查看畫面" description="4.1.2 電話記錄作業─資料查看畫面" target="mainFrame" url="Forms/PhoneRec/PhoneRec_Lis_01.aspx" />
+      <siteMapNode id="4.1.3" title="4.1.3 電話記錄作業─資料新增畫面" moduleName="4.1.3 電話記錄作業─資料新增畫面" description="4.1.3 電話記錄作業─資料新增畫面" target="mainFrame" url="Forms/PhoneRec/PhoneRec_Ins_01.aspx" />
+      <siteMapNode id="4.1.4" title="4.1.4 電話記錄作業─資料更新畫面" moduleName="4.1.4 電話記錄作業─資料更新畫面" description="4.1.4 電話記錄作業─資料更新畫面" target="mainFrame" url="Forms/PhoneRec/PhoneRec_Upd_01.aspx" />
+    </siteMapNode>
+    <siteMapNode id="5" title="5.輔導作業" moduleName="5.輔導作業" description="5.輔導作業" target="mainFrame" url="">
+      <siteMapNode id="5.1.1" title="5.1.1 輔導作業─內網資料查詢" moduleName="5.1.1 輔導作業─內網資料查詢" description="5.1.1 輔導作業─內網資料查詢" target="mainFrame" url="Forms/Coach/Coach_Qry_01.aspx" />
+      <siteMapNode id="5.1.2" title="5.1.2 輔導作業─內網資料查看" moduleName="5.1.2 輔導作業─內網資料查看" description="5.1.2 輔導作業─內網資料查看" target="mainFrame" url="Forms/Coach/Coach_Lis_01.aspx" />
+      <siteMapNode id="5.1.3" title="5.1.3 輔導作業─資料新增" moduleName="5.1.3 輔導作業─資料新增" description="5.1.3 輔導作業─資料新增" target="mainFrame" url="Forms/Coach/Coach_Ins_01.aspx" />
+      <siteMapNode id="5.1.4" title="5.1.4 輔導作業─資料更新" moduleName="5.1.4 輔導作業─資料更新" description="5.1.4 輔導作業─資料更新" target="mainFrame" url="Forms/Coach/Coach_Upd_01.aspx" />
+    </siteMapNode>
+    <siteMapNode id="6" title="6.諮詢作業" moduleName="6.諮詢作業" description="6.諮詢作業" target="mainFrame" url="">
+      <siteMapNode id="6.1.1" title="6.1.1 諮詢作業─內網資料查詢畫面" moduleName="6.1.1 諮詢作業─內網資料查詢畫面" description="6.1.1 諮詢作業─內網資料查詢畫面" target="mainFrame" url="Forms/Consulting/Consulting_Qry_01.aspx" />
+      <siteMapNode id="6.1.2" title="6.1.2 諮詢作業─內網資料查看畫面" moduleName="6.1.2 諮詢作業─內網資料查看畫面" description="6.1.2 諮詢作業─內網資料查看畫面" target="mainFrame" url="Forms/Consulting/Consulting_Lis_01.aspx" />
+      <siteMapNode id="6.1.3" title="6.1.3 諮詢作業─內網資料新增畫面" moduleName="6.1.3 諮詢作業─內網資料新增畫面" description="6.1.3 諮詢作業─內網資料新增畫面" target="mainFrame" url="Forms/Consulting/Consulting_Ins_01.aspx" />
+      <siteMapNode id="6.1.4" title="6.1.4 諮詢作業─內網資料更新畫面" moduleName="6.1.4 諮詢作業─內網資料更新畫面" description="6.1.4 諮詢作業─內網資料更新畫面" target="mainFrame" url="Forms/Consulting/Consulting_Upd_01.aspx" />
+    </siteMapNode>
+    <siteMapNode id="7" title="7.產業履歷管理作業" moduleName="7.產業履歷管理作業" description="7.產業履歷管理作業" target="mainFrame" url="">
+      <siteMapNode id="7.1.2" title="7.1.2 產業履歷管理作業─內網資料查詢畫面" moduleName="7.1.2 產業履歷管理作業─內網資料查詢畫面" description="7.1.2 產業履歷管理作業─內網資料查詢畫面" target="mainFrame" url="Forms/Company/Company_Qry_01.aspx" />
+    </siteMapNode>
+    <siteMapNode id="8" title="8.報表列印作業" moduleName="8.報表列印作業" description="8.報表列印作業" target="mainFrame" url="">
+      <siteMapNode id="8.2.1" title="8.2.1 獎補助專案申請一覽表" moduleName="8.2.1 獎補助專案申請一覽表" description="8.2.1 獎補助專案申請一覽表" target="mainFrame" url="Forms/Report/RPOUT_Qry_01.aspx" />
+      <siteMapNode id="8.2.2" title="8.2.2 獎補助專案計畫審查委員彙總表" moduleName="8.2.2 獎補助專案計畫審查委員彙總表" description="8.2.2 獎補助專案計畫審查委員彙總表" target="mainFrame" url="Forms/Report/RPOUT_Qry_02.aspx" />
+      <siteMapNode id="8.2.3" title="8.2.3 獎補助專案初審技審委員評分項目意見總表" moduleName="8.2.3 獎補助專案初審技審委員評分項目意見總表" description="8.2.3 獎補助專案初審技審委員評分項目意見總表" target="mainFrame" url="Forms/Report/RPOUT_Qry_03.aspx" />
+      <siteMapNode id="8.2.4" title="8.2.4 獎補助專案初審技審委員綜整資料表" moduleName="8.2.4 獎補助專案初審技審委員綜整資料表" description="8.2.4 獎補助專案初審技審委員綜整資料表" target="mainFrame" url="Forms/Report/RPOUT_Qry_04.aspx" />
+      <siteMapNode id="8.2.5" title="8.2.5 獎補助專案進入決審彙整表" moduleName="8.2.5 獎補助專案進入決審彙整表" description="8.2.5 獎補助專案進入決審彙整表" target="mainFrame" url="Forms/Report/RPOUT_Qry_05.aspx" />
+      <siteMapNode id="8.2.6" title="8.2.6 獎補助專案顧問輔導單" moduleName="8.2.6 獎補助專案顧問輔導單" description="8.2.6 獎補助專案顧問輔導單" target="mainFrame" url="Forms/Report/RPOUT_Qry_06.aspx" />
+      <siteMapNode id="8.2.7" title="8.2.7 媒合計畫繳件明細表" moduleName="8.2.7 媒合計畫繳件明細表" description="8.2.7 媒合計畫繳件明細表" target="mainFrame" url="Forms/Report/RPOUT_Qry_07.aspx" />
+      <siteMapNode id="8.2.11" title="8.2.11 駐診諮詢需求單" moduleName="8.2.11 駐診諮詢需求單" description="8.2.11 駐診諮詢需求單" target="mainFrame" url="Forms/Report/RPOUT_Qry_11.aspx" />
+      <siteMapNode id="8.2.12" title="8.2.12 諮詢記錄匯整-一般表" moduleName="8.2.12 諮詢記錄匯整-一般表" description="8.2.12 諮詢記錄匯整-一般表" target="mainFrame" url="Forms/Report/RPOUT_Qry_12.aspx" />
+      <siteMapNode id="8.2.13" title="8.2.13 輔導駐診諮詢-一般表" moduleName="8.2.13 輔導駐診諮詢-一般表" description="8.2.13 輔導駐診諮詢-一般表" target="mainFrame" url="Forms/Report/RPOUT_Qry_13.aspx" />
+      <siteMapNode id="8.2.14" title="8.2.14 輔導案件聯絡-一般表" moduleName="8.2.14 輔導案件聯絡-一般表" description="8.2.14 輔導案件聯絡-一般表" target="mainFrame" url="Forms/Report/RPOUT_Qry_14.aspx" />
+      <siteMapNode id="8.2.15" title="8.2.15 輔導案件匯整表-一般表" moduleName="8.2.15 輔導案件匯整表-一般表" description="8.2.15 輔導案件匯整表-一般表" target="mainFrame" url="Forms/Report/RPOUT_Qry_15.aspx" />
+    </siteMapNode>
+    <siteMapNode id="9" title="9.系統管理作業" moduleName="9.系統管理作業" description="9.系統管理作業" target="mainFrame" url="">
+      <siteMapNode id="9.1.3" title="9.1.3 帳號重設作業－資料查詢" moduleName="9.1.3 帳號重設作業－資料查詢" description="9.1.3 帳號重設作業－資料查詢" target="mainFrame" url="Forms/Setting/UserPwd_Qry_01.aspx" />
+      <siteMapNode id="9.1.5" title="9.1.5 人員權限管理作業─資料查詢" moduleName="9.1.5 人員權限管理作業─資料查詢" description="9.1.5 人員權限管理作業─資料查詢" target="mainFrame" url="Forms/Setting/UserRights_Qry_01.aspx" />
+      <siteMapNode id="9.1.6" title="9.1.6 人員權限管理作業─資料新增" moduleName="9.1.6 人員權限管理作業─資料新增" description="9.1.6 人員權限管理作業─資料新增" target="mainFrame" url="Forms/Setting/UserRights_Ins_01.aspx" />
+      <siteMapNode id="9.1.7" title="9.1.7 人員權限管理作業─資料更新" moduleName="9.1.7 人員權限管理作業─資料更新" description="9.1.7 人員權限管理作業─資料更新" target="mainFrame" url="Forms/Setting/UserRights_Upd_01.aspx" />
+      <siteMapNode id="9.1.9" title="9.1.9 公告作業─資料查詢" moduleName="9.1.9 公告作業─資料查詢" description="9.1.9 公告作業─資料查詢" target="mainFrame" url="Forms/Setting/Announcement_Qry_01.aspx" />
+      <siteMapNode id="9.1.14" title="9.1.14 系統參數設定作業─資料修改" moduleName="9.1.14 系統參數設定作業─資料修改" description="9.1.14 系統參數設定作業─資料修改" target="mainFrame" url="Forms/Setting/SYSAP_Upd_01.aspx" />
+      <siteMapNode id="9.1.15" title="9.1.15 程式清單管理作業─資料查詢" moduleName="9.1.15 程式清單管理作業─資料查詢" description="9.1.15 程式清單管理作業─資料查詢" target="mainFrame" url="Forms/Setting/Program_Qry_01.aspx" />
+      <siteMapNode id="9.1.16" title="9.1.16 程式清單管理作業─資料新增" moduleName="9.1.16 程式清單管理作業─資料新增" description="9.1.16 程式清單管理作業─資料新增" target="mainFrame" url="Forms/Setting/Program_Ins_01.aspx" />
+      <siteMapNode id="9.1.17" title="9.1.17 程式清單管理作業─資料更新" moduleName="9.1.17 程式清單管理作業─資料更新" description="9.1.17 程式清單管理作業─資料更新" target="mainFrame" url="Forms/Setting/Program_Upd_01.aspx" />
+      <siteMapNode id="9.1.18" title="9.1.18 單位管理作業─資料查詢" moduleName="9.1.18 單位管理作業─資料查詢" description="9.1.18 單位管理作業─資料查詢" target="mainFrame" url="Forms/Setting/UserDep_Qry_01.aspx" />
+      <siteMapNode id="9.1.19" title="9.1.19 單位管理作業─資料新增" moduleName="9.1.19 單位管理作業─資料新增" description="9.1.19 單位管理作業─資料新增" target="mainFrame" url="Forms/Setting/UserDep_Ins_01.aspx" />
+      <siteMapNode id="9.1.20" title="9.1.20 單位管理作業─資料更新" moduleName="9.1.20 單位管理作業─資料更新" description="9.1.20 單位管理作業─資料更新" target="mainFrame" url="Forms/Setting/UserDep_Upd_01.aspx" />
+      <siteMapNode id="9.1.21" title="9.1.21 系統參數設定作業─資料查詢" moduleName="9.1.21 系統參數設定作業─資料查詢" description="9.1.21 系統參數設定作業─資料查詢" target="mainFrame" url="Forms/Setting/SYSAP_Qry_01.aspx" />
+    </siteMapNode>
+    <siteMapNode id="10" title="10.代碼管理作業" moduleName="10.代碼管理作業" description="10.代碼管理作業" target="mainFrame" url="">
+      <siteMapNode id="10.3.3" title="10.3.3 輔導類別資料作業─資料更新" moduleName="10.3.3 輔導類別資料作業─資料更新" description="10.3.3 輔導類別資料作業─資料更新" target="mainFrame" url="Forms/Setting/CoachKind_Upd_01.aspx" />
+      <siteMapNode id="10.4.3" title="10.4.3 銀行相關資料作業─資料更新" moduleName="10.4.3 銀行相關資料作業─資料更新" description="10.4.3 銀行相關資料作業─資料更新" target="mainFrame" url="Forms/Setting/Bank_Upd_01.aspx" />
+      <siteMapNode id="10.5.1" title="10.5.1 專長範本資料作業─資料修改" moduleName="10.5.1 專長範本資料作業─資料修改" description="10.5.1 專長範本資料作業─資料修改" target="mainFrame" url="Forms/Setting/SkillSample_Upd_01.aspx" />
+      <siteMapNode id="10.6.1" title="10.6.1 會議類別資料作業─查詢作業" moduleName="10.6.1 會議類別資料作業─查詢作業" description="10.6.1 會議類別資料作業─查詢作業" target="mainFrame" url="Forms/Setting/Mety_Qry_01.aspx" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

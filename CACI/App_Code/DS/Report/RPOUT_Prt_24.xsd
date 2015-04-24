@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RPOUT_Prt_24" targetNamespace="http://tempuri.org/RPOUT_Prt_24.xsd" xmlns:mstns="http://tempuri.org/RPOUT_Prt_24.xsd" xmlns="http://tempuri.org/RPOUT_Prt_24.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="CACIDB" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CACIDB (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.CACIDB.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CACIDB (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          a.Aow_Code, c.ApPj_Name, b.Com_Name, b.Com_Boss, b.Com_BsTel, b.Com_CttName, b.Com_CttTel, b.Com_Fax, 
+                            b.Com_CttMail, b.Com_OPAddr, b.Com_Url, c.ApPj_BgnDate, c.ApPj_EndDate, c.ApPj_TotAmt, c.ApPj_AowAmt, 
+                            c.ApPj_OthAmt, c.ApPj_Agenda, d.Aas_PjName, d.Aas_PjUnit, d.Aas_Amount
+FROM              Allowance AS a INNER JOIN
+                            Company AS b ON a.Com_Code = b.Com_Code INNER JOIN
+                            ApPjContext AS c ON a.Aow_Code = c.Aow_Code INNER JOIN
+                            ApplyAsis AS d ON a.Aow_Code = d.Aow_Code</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Aow_Code" DataSetColumn="Aow_Code" />
+              <Mapping SourceColumn="ApPj_Name" DataSetColumn="ApPj_Name" />
+              <Mapping SourceColumn="Com_Name" DataSetColumn="Com_Name" />
+              <Mapping SourceColumn="Com_Boss" DataSetColumn="Com_Boss" />
+              <Mapping SourceColumn="Com_BsTel" DataSetColumn="Com_BsTel" />
+              <Mapping SourceColumn="Com_CttName" DataSetColumn="Com_CttName" />
+              <Mapping SourceColumn="Com_CttTel" DataSetColumn="Com_CttTel" />
+              <Mapping SourceColumn="Com_Fax" DataSetColumn="Com_Fax" />
+              <Mapping SourceColumn="Com_CttMail" DataSetColumn="Com_CttMail" />
+              <Mapping SourceColumn="Com_OPAddr" DataSetColumn="Com_OPAddr" />
+              <Mapping SourceColumn="Com_Url" DataSetColumn="Com_Url" />
+              <Mapping SourceColumn="ApPj_BgnDate" DataSetColumn="ApPj_BgnDate" />
+              <Mapping SourceColumn="ApPj_EndDate" DataSetColumn="ApPj_EndDate" />
+              <Mapping SourceColumn="ApPj_TotAmt" DataSetColumn="ApPj_TotAmt" />
+              <Mapping SourceColumn="ApPj_AowAmt" DataSetColumn="ApPj_AowAmt" />
+              <Mapping SourceColumn="ApPj_OthAmt" DataSetColumn="ApPj_OthAmt" />
+              <Mapping SourceColumn="ApPj_Agenda" DataSetColumn="ApPj_Agenda" />
+              <Mapping SourceColumn="Aas_PjName" DataSetColumn="Aas_PjName" />
+              <Mapping SourceColumn="Aas_PjUnit" DataSetColumn="Aas_PjUnit" />
+              <Mapping SourceColumn="Aas_Amount" DataSetColumn="Aas_Amount" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RPOUT_Prt_24" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="RPOUT_Prt_24" msprop:Generator_UserDSName="RPOUT_Prt_24">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Aow_Code" msprop:Generator_ColumnVarNameInTable="columnAow_Code" msprop:Generator_ColumnPropNameInRow="Aow_Code" msprop:Generator_ColumnPropNameInTable="Aow_CodeColumn" msprop:Generator_UserColumnName="Aow_Code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApPj_Name" msprop:Generator_ColumnVarNameInTable="columnApPj_Name" msprop:Generator_ColumnPropNameInRow="ApPj_Name" msprop:Generator_ColumnPropNameInTable="ApPj_NameColumn" msprop:Generator_UserColumnName="ApPj_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_Name" msprop:Generator_ColumnVarNameInTable="columnCom_Name" msprop:Generator_ColumnPropNameInRow="Com_Name" msprop:Generator_ColumnPropNameInTable="Com_NameColumn" msprop:Generator_UserColumnName="Com_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_Boss" msprop:Generator_ColumnVarNameInTable="columnCom_Boss" msprop:Generator_ColumnPropNameInRow="Com_Boss" msprop:Generator_ColumnPropNameInTable="Com_BossColumn" msprop:Generator_UserColumnName="Com_Boss" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_BsTel" msprop:Generator_ColumnVarNameInTable="columnCom_BsTel" msprop:Generator_ColumnPropNameInRow="Com_BsTel" msprop:Generator_ColumnPropNameInTable="Com_BsTelColumn" msprop:Generator_UserColumnName="Com_BsTel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_CttName" msprop:Generator_ColumnVarNameInTable="columnCom_CttName" msprop:Generator_ColumnPropNameInRow="Com_CttName" msprop:Generator_ColumnPropNameInTable="Com_CttNameColumn" msprop:Generator_UserColumnName="Com_CttName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_CttTel" msprop:Generator_ColumnVarNameInTable="columnCom_CttTel" msprop:Generator_ColumnPropNameInRow="Com_CttTel" msprop:Generator_ColumnPropNameInTable="Com_CttTelColumn" msprop:Generator_UserColumnName="Com_CttTel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_Fax" msprop:Generator_ColumnVarNameInTable="columnCom_Fax" msprop:Generator_ColumnPropNameInRow="Com_Fax" msprop:Generator_ColumnPropNameInTable="Com_FaxColumn" msprop:Generator_UserColumnName="Com_Fax" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_CttMail" msprop:Generator_ColumnVarNameInTable="columnCom_CttMail" msprop:Generator_ColumnPropNameInRow="Com_CttMail" msprop:Generator_ColumnPropNameInTable="Com_CttMailColumn" msprop:Generator_UserColumnName="Com_CttMail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_OPAddr" msprop:Generator_ColumnVarNameInTable="columnCom_OPAddr" msprop:Generator_ColumnPropNameInRow="Com_OPAddr" msprop:Generator_ColumnPropNameInTable="Com_OPAddrColumn" msprop:Generator_UserColumnName="Com_OPAddr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_Url" msprop:Generator_ColumnVarNameInTable="columnCom_Url" msprop:Generator_ColumnPropNameInRow="Com_Url" msprop:Generator_ColumnPropNameInTable="Com_UrlColumn" msprop:Generator_UserColumnName="Com_Url" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApPj_BgnDate" msprop:Generator_ColumnVarNameInTable="columnApPj_BgnDate" msprop:Generator_ColumnPropNameInRow="ApPj_BgnDate" msprop:Generator_ColumnPropNameInTable="ApPj_BgnDateColumn" msprop:Generator_UserColumnName="ApPj_BgnDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ApPj_EndDate" msprop:Generator_ColumnVarNameInTable="columnApPj_EndDate" msprop:Generator_ColumnPropNameInRow="ApPj_EndDate" msprop:Generator_ColumnPropNameInTable="ApPj_EndDateColumn" msprop:Generator_UserColumnName="ApPj_EndDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ApPj_TotAmt" msprop:Generator_ColumnVarNameInTable="columnApPj_TotAmt" msprop:Generator_ColumnPropNameInRow="ApPj_TotAmt" msprop:Generator_ColumnPropNameInTable="ApPj_TotAmtColumn" msprop:Generator_UserColumnName="ApPj_TotAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ApPj_AowAmt" msprop:Generator_ColumnVarNameInTable="columnApPj_AowAmt" msprop:Generator_ColumnPropNameInRow="ApPj_AowAmt" msprop:Generator_ColumnPropNameInTable="ApPj_AowAmtColumn" msprop:Generator_UserColumnName="ApPj_AowAmt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ApPj_OthAmt" msprop:Generator_ColumnVarNameInTable="columnApPj_OthAmt" msprop:Generator_ColumnPropNameInRow="ApPj_OthAmt" msprop:Generator_ColumnPropNameInTable="ApPj_OthAmtColumn" msprop:Generator_UserColumnName="ApPj_OthAmt" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApPj_Agenda" msprop:Generator_ColumnVarNameInTable="columnApPj_Agenda" msprop:Generator_ColumnPropNameInRow="ApPj_Agenda" msprop:Generator_ColumnPropNameInTable="ApPj_AgendaColumn" msprop:Generator_UserColumnName="ApPj_Agenda" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Aas_PjName" msprop:Generator_ColumnVarNameInTable="columnAas_PjName" msprop:Generator_ColumnPropNameInRow="Aas_PjName" msprop:Generator_ColumnPropNameInTable="Aas_PjNameColumn" msprop:Generator_UserColumnName="Aas_PjName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Aas_PjUnit" msprop:Generator_ColumnVarNameInTable="columnAas_PjUnit" msprop:Generator_ColumnPropNameInRow="Aas_PjUnit" msprop:Generator_ColumnPropNameInTable="Aas_PjUnitColumn" msprop:Generator_UserColumnName="Aas_PjUnit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Aas_Amount" msprop:Generator_ColumnVarNameInTable="columnAas_Amount" msprop:Generator_ColumnPropNameInRow="Aas_Amount" msprop:Generator_ColumnPropNameInTable="Aas_AmountColumn" msprop:Generator_UserColumnName="Aas_Amount" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:Aow_Code" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

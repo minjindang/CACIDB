@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RPOUT_Statics_Lis_03DS" targetNamespace="http://tempuri.org/RPOUT_Statics_Lis_03DS.xsd" xmlns:mstns="http://tempuri.org/RPOUT_Statics_Lis_03DS.xsd" xmlns="http://tempuri.org/RPOUT_Statics_Lis_03DS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="CACIDB" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CACIDB (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.CACIDB.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SysCodeTableAdapter" GeneratorDataComponentClassName="SysCodeTableAdapter" Name="SysCode" UserDataComponentName="SysCodeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CACIDB (Web.config)" DbObjectName="CACIDB.dbo.SysCode" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select  convert(nvarchar(10),getdate(),111) as getdate, c.Sys_CdText, count(distinct b.Com_Code)AS yearCount,
+       (select COUNT(distinct Company.Com_Code)      
+        from Coach inner join Company  on Coach.Com_Code = Company.Com_Code
+              right join SysCode  on Company.Com_MnSectors = SysCode.Sys_CdCode 
+              and year(Coach.Coach_Date) &gt;= '2011' 
+        where SysCode.Sys_CdKind = ('I') and SysCode.Sys_CdType = ('D') 
+               and SysCode.Sys_CdCode = c.Sys_CdCode  
+        group by SysCode.Sys_CdText, SysCode.Sys_CdCode
+        )as accuCount
+from Coach a inner join Company b on a.Com_Code = b.Com_Code
+      right join SysCode c on b.Com_MnSectors = c.Sys_CdCode 
+and year(a.Coach_Date) = '2012' 
+where c.Sys_CdKind = ('I') and c.Sys_CdType = ('D') 
+group by c.Sys_CdText,c.Sys_CdCode 
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Sys_CdText" DataSetColumn="Sys_CdText" />
+              <Mapping SourceColumn="yearCount" DataSetColumn="yearCount" />
+              <Mapping SourceColumn="accuCount" DataSetColumn="accuCount" />
+              <Mapping SourceColumn="getdate" DataSetColumn="getdate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CACIDB (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select  convert(nvarchar(10),getdate(),111) as getdate, (case 
+        when c.Sys_CdText = '商業登記'
+		    then '商業登記'
+		when c.Sys_CdText = '有限公司'
+			then '有限公司'
+		when c.Sys_CdText = '股份有限公司'
+		    then '股份有限公司'
+		else '其他'
+		end) as name, COUNT(distinct b.Com_Code) as yearCount, 
+		( 
+		 select COUNT(distinct Company.Com_Code)
+		 from Coach inner join Company on Coach.Com_Code = Company.Com_Code
+              right join SysCode on Company.Com_OrgForm = SysCode.Sys_CdCode 
+              and Coach.Coach_Date &gt;= ('2012')
+          where SysCode.Sys_CdKind = ('R') and SysCode.Sys_CdType = ('T')
+              and 
+              (case 
+               when SysCode.Sys_CdText = '商業登記'
+			     then '商業登記'
+		     when SysCode.Sys_CdText = '有限公司'
+			     then '有限公司'
+		     when SysCode.Sys_CdText = '股份有限公司'
+		          then '股份有限公司'
+		     else '其他'
+		     end) = 
+              (case 
+               when c.Sys_CdText = '商業登記'
+			     then '商業登記'
+		     when c.Sys_CdText = '有限公司'
+			     then '有限公司'
+		     when c.Sys_CdText = '股份有限公司'
+		          then '股份有限公司'
+		     else '其他'
+		     end)		     
+         group by (case 
+                     when SysCode.Sys_CdText = '商業登記'
+			           then '商業登記'
+		           when SysCode.Sys_CdText = '有限公司'
+			           then '有限公司'
+		           when SysCode.Sys_CdText = '股份有限公司'
+		                then '股份有限公司'
+		           else '其他'
+		           end)
+		) as accuCount
+from Coach a inner join Company b on a.Com_Code = b.Com_Code
+      right join SysCode c on b.Com_OrgForm = c.Sys_CdCode 
+      and a.Coach_Date = ('2012') 
+where c.Sys_CdKind = ('R') and c.Sys_CdType = ('T')
+group by (case 
+            when c.Sys_CdText = '商業登記'
+		       then '商業登記'
+		  when c.Sys_CdText = '有限公司'
+			  then '有限公司'
+		  when c.Sys_CdText = '股份有限公司'
+		      then '股份有限公司'
+		  else '其他'
+		  end)
+
+
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="yearCount" DataSetColumn="yearCount" />
+              <Mapping SourceColumn="accuCount" DataSetColumn="accuCount" />
+              <Mapping SourceColumn="getdate" DataSetColumn="getdate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CACIDB (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select  convert(nvarchar(10),getdate(),111) as getdate,'100萬以下' as capRangeName, COUNT(distinct b.Com_Code) as capRangeCount,
+       (select COUNT(distinct Company.Com_Code)
+        from Coach inner join Company on Coach.Com_Code = Company.Com_Code
+        where Company.Com_Capital &lt; 1000000 and year(Coach.Coach_Date) &gt;= '2012'
+       
+        )as accuCapRangeCount
+from Coach a inner join Company b on a.Com_Code = b.Com_Code
+where b.Com_Capital &lt; 1000000 and year(a.Coach_Date) = '2012'
+union
+select  convert(nvarchar(10),getdate(),111) as getdate,'100-300萬' as capRangeName, COUNT(distinct b.Com_Code) as capRangeCount,
+       (select COUNT(distinct Company.Com_Code)
+        from Coach inner join Company on Coach.Com_Code = Company.Com_Code
+        where (Company.Com_Capital &gt;= 1000000 or Company.Com_Capital &gt; 3000000) 
+        and year(Coach.Coach_Date) &gt;= '2012' 
+        )as accuCapRangeCount
+from Coach a inner join Company b on a.Com_Code = b.Com_Code
+where (b.Com_Capital &gt;= 1000000 or b.Com_Capital &gt; 3000000) 
+and year(a.Coach_Date) = '2012' 
+union 
+select  convert(nvarchar(10),getdate(),111) as getdate,'300-500萬' as capRangeName, COUNT(distinct b.Com_Code) as capRangeCount,
+	   (select COUNT(distinct Company.Com_Code)
+        from Coach inner join Company on Coach.Com_Code = Company.Com_Code
+        where (Company.Com_Capital &gt;= 3000000 or Company.Com_Capital &gt; 5000000) 
+and year(Coach.Coach_Date) &gt;= '2012'
+        )as accuCapRangeCount
+from Coach a inner join Company b on a.Com_Code = b.Com_Code
+where (b.Com_Capital &gt;= 3000000 or b.Com_Capital &gt; 5000000) 
+and year(a.Coach_Date) = '2012' 
+union
+select  convert(nvarchar(10),getdate(),111) as getdate, '500-1000萬' as capRangeName, COUNT(distinct b.Com_Code) as capRangeCount,
+       (select COUNT(distinct Company.Com_Code)
+        from Coach inner join Company on Coach.Com_Code = Company.Com_Code
+        where (Company.Com_Capital &gt;= 5000000 or Company.Com_Capital &gt; 10000000) 
+        and year(Coach.Coach_Date) &gt;= '2012'
+        )as accuCapRangeCount
+from Coach a inner join Company b on a.Com_Code = b.Com_Code
+where (b.Com_Capital &gt;= 5000000 or b.Com_Capital &gt; 10000000) 
+and year(a.Coach_Date) = '2012' 
+union
+select  convert(nvarchar(10),getdate(),111) as getdate, '1000-5000萬' as capRangeName, COUNT(distinct b.Com_Code) as capRangeCount,
+	   (select COUNT(distinct Company.Com_Code)
+        from Coach inner join Company on Coach.Com_Code = Company.Com_Code
+        where (Company.Com_Capital &gt;= 10000000 or Company.Com_Capital &gt; 50000000) 
+            and year(Coach.Coach_Date) &gt;= '2012' 
+        )as accuCapRangeCount
+from Coach a inner join Company b on a.Com_Code = b.Com_Code
+where (b.Com_Capital &gt;= 10000000 or b.Com_Capital &gt; 50000000) and year(a.Coach_Date) = '2012'
+union
+select  convert(nvarchar(10),getdate(),111) as getdate, '5000萬以上' as capRangeName, COUNT(distinct b.Com_Code) as capRangeCount,
+       (select COUNT(distinct Company.Com_Code)
+        from Coach inner join Company on Coach.Com_Code = Company.Com_Code
+        where Company.Com_Capital &gt;= 50000000 and year(Coach.Coach_Date) &gt;= '2012'
+        )as accuCapRangeCount
+from Coach a inner join Company b on a.Com_Code = b.Com_Code
+where b.Com_Capital &gt;= 50000000 and year(a.Coach_Date) = '2012' 
+
+
+
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="capRangeName" DataSetColumn="capRangeName" />
+              <Mapping SourceColumn="capRangeCount" DataSetColumn="capRangeCount" />
+              <Mapping SourceColumn="accuCapRangeCount" DataSetColumn="accuCapRangeCount" />
+              <Mapping SourceColumn="getdate" DataSetColumn="getdate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SysCode1TableAdapter" GeneratorDataComponentClassName="SysCode1TableAdapter" Name="SysCode1" UserDataComponentName="SysCode1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CACIDB (Web.config)" DbObjectName="CACIDB.dbo.SysCode" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select  convert(nvarchar(10),getdate(),111) as getdate, c.Sys_CdText, COUNT(a.Coach_Code) as yearCount,
+       (select COUNT(Coach.Coach_Code)
+        from Coach inner join CoachKind on Coach.ChKd_Code = CoachKind.ChKd_Code
+             right join SysCode on CoachKind.ChKd_Order = SysCode.Sys_CdCode 
+             and year(Coach.Coach_Date) &gt;= '2012' 
+        where SysCode.Sys_CdKind = ('C') and SysCode.Sys_CdType = ('K')  
+		and SysCode.Sys_CdCode = c.Sys_CdCode
+        group by SysCode.Sys_CdText
+       )as accuCount
+from Coach a inner join CoachKind b on a.ChKd_Code = b.ChKd_Code
+     right join SysCode c on b.ChKd_Order = c.Sys_CdCode 
+and year(a.Coach_Date) = '2012'
+where c.Sys_CdKind = ('C') and c.Sys_CdType = ('K')
+group by c.Sys_CdText,c.Sys_CdCode
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Sys_CdText" DataSetColumn="Sys_CdText" />
+              <Mapping SourceColumn="yearCount" DataSetColumn="yearCount" />
+              <Mapping SourceColumn="accuCount" DataSetColumn="accuCount" />
+              <Mapping SourceColumn="getdate" DataSetColumn="getdate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RPOUT_Statics_Lis_03DS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="RPOUT_Statics_Lis_03DS" msprop:Generator_UserDSName="RPOUT_Statics_Lis_03DS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SysCode" msprop:Generator_TableClassName="SysCodeDataTable" msprop:Generator_TableVarName="tableSysCode" msprop:Generator_TablePropName="SysCode" msprop:Generator_RowDeletingName="SysCodeRowDeleting" msprop:Generator_UserTableName="SysCode" msprop:Generator_RowChangingName="SysCodeRowChanging" msprop:Generator_RowEvHandlerName="SysCodeRowChangeEventHandler" msprop:Generator_RowDeletedName="SysCodeRowDeleted" msprop:Generator_RowEvArgName="SysCodeRowChangeEvent" msprop:Generator_RowChangedName="SysCodeRowChanged" msprop:Generator_RowClassName="SysCodeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Sys_CdText" msprop:Generator_ColumnVarNameInTable="columnSys_CdText" msprop:Generator_ColumnPropNameInRow="Sys_CdText" msprop:Generator_ColumnPropNameInTable="Sys_CdTextColumn" msprop:Generator_UserColumnName="Sys_CdText" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="yearCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnyearCount" msprop:Generator_ColumnPropNameInRow="yearCount" msprop:Generator_ColumnPropNameInTable="yearCountColumn" msprop:Generator_UserColumnName="yearCount" type="xs:int" minOccurs="0" />
+              <xs:element name="accuCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnaccuCount" msprop:Generator_ColumnPropNameInRow="accuCount" msprop:Generator_ColumnPropNameInTable="accuCountColumn" msprop:Generator_UserColumnName="accuCount" type="xs:int" minOccurs="0" />
+              <xs:element name="getdate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngetdate" msprop:Generator_ColumnPropNameInRow="getdate" msprop:Generator_ColumnPropNameInTable="getdateColumn" msprop:Generator_UserColumnName="getdate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="yearCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnyearCount" msprop:Generator_ColumnPropNameInRow="yearCount" msprop:Generator_ColumnPropNameInTable="yearCountColumn" msprop:Generator_UserColumnName="yearCount" type="xs:int" minOccurs="0" />
+              <xs:element name="accuCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnaccuCount" msprop:Generator_ColumnPropNameInRow="accuCount" msprop:Generator_ColumnPropNameInTable="accuCountColumn" msprop:Generator_UserColumnName="accuCount" type="xs:int" minOccurs="0" />
+              <xs:element name="getdate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngetdate" msprop:Generator_ColumnPropNameInRow="getdate" msprop:Generator_ColumnPropNameInTable="getdateColumn" msprop:Generator_UserColumnName="getdate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="capRangeName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncapRangeName" msprop:Generator_ColumnPropNameInRow="capRangeName" msprop:Generator_ColumnPropNameInTable="capRangeNameColumn" msprop:Generator_UserColumnName="capRangeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="capRangeCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columncapRangeCount" msprop:Generator_ColumnPropNameInRow="capRangeCount" msprop:Generator_ColumnPropNameInTable="capRangeCountColumn" msprop:Generator_UserColumnName="capRangeCount" type="xs:int" minOccurs="0" />
+              <xs:element name="accuCapRangeCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnaccuCapRangeCount" msprop:Generator_ColumnPropNameInRow="accuCapRangeCount" msprop:Generator_ColumnPropNameInTable="accuCapRangeCountColumn" msprop:Generator_UserColumnName="accuCapRangeCount" type="xs:int" minOccurs="0" />
+              <xs:element name="getdate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngetdate" msprop:Generator_ColumnPropNameInRow="getdate" msprop:Generator_ColumnPropNameInTable="getdateColumn" msprop:Generator_UserColumnName="getdate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SysCode1" msprop:Generator_TableClassName="SysCode1DataTable" msprop:Generator_TableVarName="tableSysCode1" msprop:Generator_TablePropName="SysCode1" msprop:Generator_RowDeletingName="SysCode1RowDeleting" msprop:Generator_UserTableName="SysCode1" msprop:Generator_RowChangingName="SysCode1RowChanging" msprop:Generator_RowEvHandlerName="SysCode1RowChangeEventHandler" msprop:Generator_RowDeletedName="SysCode1RowDeleted" msprop:Generator_RowEvArgName="SysCode1RowChangeEvent" msprop:Generator_RowChangedName="SysCode1RowChanged" msprop:Generator_RowClassName="SysCode1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Sys_CdText" msprop:Generator_ColumnVarNameInTable="columnSys_CdText" msprop:Generator_ColumnPropNameInRow="Sys_CdText" msprop:Generator_ColumnPropNameInTable="Sys_CdTextColumn" msprop:Generator_UserColumnName="Sys_CdText" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="yearCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnyearCount" msprop:Generator_ColumnPropNameInRow="yearCount" msprop:Generator_ColumnPropNameInTable="yearCountColumn" msprop:Generator_UserColumnName="yearCount" type="xs:int" minOccurs="0" />
+              <xs:element name="accuCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnaccuCount" msprop:Generator_ColumnPropNameInRow="accuCount" msprop:Generator_ColumnPropNameInTable="accuCountColumn" msprop:Generator_UserColumnName="accuCount" type="xs:int" minOccurs="0" />
+              <xs:element name="getdate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngetdate" msprop:Generator_ColumnPropNameInRow="getdate" msprop:Generator_ColumnPropNameInTable="getdateColumn" msprop:Generator_UserColumnName="getdate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RPOUT_Lis_14DS" targetNamespace="http://tempuri.org/RPOUT_Lis_14DS.xsd" xmlns:mstns="http://tempuri.org/RPOUT_Lis_14DS.xsd" xmlns="http://tempuri.org/RPOUT_Lis_14DS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="CACIDB" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CACIDB (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.CACIDB.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CACIDB (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select dbo.chgToChnDate(convert(nvarchar(10),getdate(),111)) as getdate, b.Com_Name,    --單位名稱
+       b.Com_Tel,                 --單位電話
+       b.Com_CttName,            --聯絡人
+       b.Com_CttCell,            --聯絡人手機
+       b.Com_CttMail,            --聯絡人電子郵件
+       b.Com_CttName2,           --聯絡人
+       b.Com_CttCell2,           --聯絡人手機
+       b.Com_CttMail2,           --聯絡人電子郵件
+       b.Com_OPAddr,             --單位住址
+       c.Pj_Name                 --專案名稱
+from Coach a inner join Company b on a.Com_Code = b.Com_Code 
+     inner join Project c on a.Pj_Code = c.Pj_Code
+--查詢條件有填：統編/身份證字號/立案號 需加入↓
+group by b.Com_Name,b.Com_Tel,b.Com_CttName,b.Com_CttCell,b.Com_CttMail,b.Com_CttName2,b.Com_CttCell2,b.Com_CttMail2,b.Com_OPAddr,b.Com_Code,c.Pj_Name
+order by b.Com_Code
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Com_Name" DataSetColumn="Com_Name" />
+              <Mapping SourceColumn="Com_Tel" DataSetColumn="Com_Tel" />
+              <Mapping SourceColumn="Com_CttName" DataSetColumn="Com_CttName" />
+              <Mapping SourceColumn="Com_CttCell" DataSetColumn="Com_CttCell" />
+              <Mapping SourceColumn="Com_CttMail" DataSetColumn="Com_CttMail" />
+              <Mapping SourceColumn="Com_CttName2" DataSetColumn="Com_CttName2" />
+              <Mapping SourceColumn="Com_CttCell2" DataSetColumn="Com_CttCell2" />
+              <Mapping SourceColumn="Com_CttMail2" DataSetColumn="Com_CttMail2" />
+              <Mapping SourceColumn="Com_OPAddr" DataSetColumn="Com_OPAddr" />
+              <Mapping SourceColumn="Pj_Name" DataSetColumn="Pj_Name" />
+              <Mapping SourceColumn="getdate" DataSetColumn="getdate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RPOUT_Lis_14DS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="RPOUT_Lis_14DS" msprop:Generator_UserDSName="RPOUT_Lis_14DS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Com_Name" msprop:Generator_ColumnVarNameInTable="columnCom_Name" msprop:Generator_ColumnPropNameInRow="Com_Name" msprop:Generator_ColumnPropNameInTable="Com_NameColumn" msprop:Generator_UserColumnName="Com_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_Tel" msprop:Generator_ColumnVarNameInTable="columnCom_Tel" msprop:Generator_ColumnPropNameInRow="Com_Tel" msprop:Generator_ColumnPropNameInTable="Com_TelColumn" msprop:Generator_UserColumnName="Com_Tel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_CttName" msprop:Generator_ColumnVarNameInTable="columnCom_CttName" msprop:Generator_ColumnPropNameInRow="Com_CttName" msprop:Generator_ColumnPropNameInTable="Com_CttNameColumn" msprop:Generator_UserColumnName="Com_CttName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_CttCell" msprop:Generator_ColumnVarNameInTable="columnCom_CttCell" msprop:Generator_ColumnPropNameInRow="Com_CttCell" msprop:Generator_ColumnPropNameInTable="Com_CttCellColumn" msprop:Generator_UserColumnName="Com_CttCell" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_CttMail" msprop:Generator_ColumnVarNameInTable="columnCom_CttMail" msprop:Generator_ColumnPropNameInRow="Com_CttMail" msprop:Generator_ColumnPropNameInTable="Com_CttMailColumn" msprop:Generator_UserColumnName="Com_CttMail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_CttName2" msprop:Generator_ColumnVarNameInTable="columnCom_CttName2" msprop:Generator_ColumnPropNameInRow="Com_CttName2" msprop:Generator_ColumnPropNameInTable="Com_CttName2Column" msprop:Generator_UserColumnName="Com_CttName2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_CttCell2" msprop:Generator_ColumnVarNameInTable="columnCom_CttCell2" msprop:Generator_ColumnPropNameInRow="Com_CttCell2" msprop:Generator_ColumnPropNameInTable="Com_CttCell2Column" msprop:Generator_UserColumnName="Com_CttCell2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_CttMail2" msprop:Generator_ColumnVarNameInTable="columnCom_CttMail2" msprop:Generator_ColumnPropNameInRow="Com_CttMail2" msprop:Generator_ColumnPropNameInTable="Com_CttMail2Column" msprop:Generator_UserColumnName="Com_CttMail2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_OPAddr" msprop:Generator_ColumnVarNameInTable="columnCom_OPAddr" msprop:Generator_ColumnPropNameInRow="Com_OPAddr" msprop:Generator_ColumnPropNameInTable="Com_OPAddrColumn" msprop:Generator_UserColumnName="Com_OPAddr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pj_Name" msprop:Generator_ColumnVarNameInTable="columnPj_Name" msprop:Generator_ColumnPropNameInRow="Pj_Name" msprop:Generator_ColumnPropNameInTable="Pj_NameColumn" msprop:Generator_UserColumnName="Pj_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="getdate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columngetdate" msprop:Generator_ColumnPropNameInRow="getdate" msprop:Generator_ColumnPropNameInTable="getdateColumn" msprop:Generator_UserColumnName="getdate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

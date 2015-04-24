@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RPOUT_Prt_22" targetNamespace="http://tempuri.org/RPOUT_Prt_22.xsd" xmlns:mstns="http://tempuri.org/RPOUT_Prt_22.xsd" xmlns="http://tempuri.org/RPOUT_Prt_22.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="CACIDB" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CACIDB (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.CACIDB.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CACIDB (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select b.Com_Name,           --申請單位
+        b.Com_Imple,          --執行單位(缺)
+       c.ApPj_Name,           --計畫名稱
+       c.ApPj_BgnDate,        --計畫期程(起)
+       c.ApPj_EndDate,        --計畫期程(迄)
+       Round(convert(float(10),(c.ApPj_TotAmt/1000)),0)as TotFee,    
+--總經費
+       Round(convert(float(10),(c.ApPj_FundAmt/1000)),0)as FundFee,  
+--縣市政府配合款
+       Round(convert(float(10),(c.ApPj_AowAmt/1000)),0)as AowFee,     
+--申請本會經費
+       b.Com_FinancialClass   --縣市財力分級(缺)
+from Allowance a inner join Company b on a.Com_Code = b.Com_Code
+     inner join ApPjContext c on a.Aow_Code = c.Aow_Code
+where a.Aow_Code = ('申請之案件編號')
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Com_Name" DataSetColumn="Com_Name" />
+              <Mapping SourceColumn="Com_Imple" DataSetColumn="Com_Imple" />
+              <Mapping SourceColumn="ApPj_Name" DataSetColumn="ApPj_Name" />
+              <Mapping SourceColumn="ApPj_BgnDate" DataSetColumn="ApPj_BgnDate" />
+              <Mapping SourceColumn="ApPj_EndDate" DataSetColumn="ApPj_EndDate" />
+              <Mapping SourceColumn="TotFee" DataSetColumn="TotFee" />
+              <Mapping SourceColumn="FundFee" DataSetColumn="FundFee" />
+              <Mapping SourceColumn="AowFee" DataSetColumn="AowFee" />
+              <Mapping SourceColumn="Com_FinancialClass" DataSetColumn="Com_FinancialClass" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RPOUT_Prt_22" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="RPOUT_Prt_22" msprop:Generator_UserDSName="RPOUT_Prt_22">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Com_Name" msprop:Generator_ColumnVarNameInTable="columnCom_Name" msprop:Generator_ColumnPropNameInRow="Com_Name" msprop:Generator_ColumnPropNameInTable="Com_NameColumn" msprop:Generator_UserColumnName="Com_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_Imple" msprop:Generator_ColumnVarNameInTable="columnCom_Imple" msprop:Generator_ColumnPropNameInRow="Com_Imple" msprop:Generator_ColumnPropNameInTable="Com_ImpleColumn" msprop:Generator_UserColumnName="Com_Imple" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApPj_Name" msprop:Generator_ColumnVarNameInTable="columnApPj_Name" msprop:Generator_ColumnPropNameInRow="ApPj_Name" msprop:Generator_ColumnPropNameInTable="ApPj_NameColumn" msprop:Generator_UserColumnName="ApPj_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApPj_BgnDate" msprop:Generator_ColumnVarNameInTable="columnApPj_BgnDate" msprop:Generator_ColumnPropNameInRow="ApPj_BgnDate" msprop:Generator_ColumnPropNameInTable="ApPj_BgnDateColumn" msprop:Generator_UserColumnName="ApPj_BgnDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ApPj_EndDate" msprop:Generator_ColumnVarNameInTable="columnApPj_EndDate" msprop:Generator_ColumnPropNameInRow="ApPj_EndDate" msprop:Generator_ColumnPropNameInTable="ApPj_EndDateColumn" msprop:Generator_UserColumnName="ApPj_EndDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TotFee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotFee" msprop:Generator_ColumnPropNameInRow="TotFee" msprop:Generator_ColumnPropNameInTable="TotFeeColumn" msprop:Generator_UserColumnName="TotFee" type="xs:double" minOccurs="0" />
+              <xs:element name="FundFee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFundFee" msprop:Generator_ColumnPropNameInRow="FundFee" msprop:Generator_ColumnPropNameInTable="FundFeeColumn" msprop:Generator_UserColumnName="FundFee" type="xs:double" minOccurs="0" />
+              <xs:element name="AowFee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAowFee" msprop:Generator_ColumnPropNameInRow="AowFee" msprop:Generator_ColumnPropNameInTable="AowFeeColumn" msprop:Generator_UserColumnName="AowFee" type="xs:double" minOccurs="0" />
+              <xs:element name="Com_FinancialClass" msprop:Generator_ColumnVarNameInTable="columnCom_FinancialClass" msprop:Generator_ColumnPropNameInRow="Com_FinancialClass" msprop:Generator_ColumnPropNameInTable="Com_FinancialClassColumn" msprop:Generator_UserColumnName="Com_FinancialClass" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

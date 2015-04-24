@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="QueryMasterPage.master.cs"
+    Inherits="Forms_Master_QueryMasterPage" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
+<%@ Register Assembly="com.kangdainfo.online.WebControl" Namespace="com.kangdainfo.online.WebControl"
+    TagPrefix="kd" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="/CACI/CSS/baseStyle.css" rel="stylesheet" type="text/css" />
+    <link href="/CACI/CSS/FrozenTable.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+            <table cellpadding="0" cellspacing="0" border="0" style="margin-top: 10px; margin-left:6px; margin-right:10px; width:751px; height: 100%">
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+                            <tr>
+                                <td style=" background-color:orange" width="4px" height="10px"></td>
+                                <td style=" border-bottom: 1px solid #CECECE;">
+                                    <div class="navigation_style">
+                                        目前位置：<asp:SiteMapPath ID="SiteMapPath1" runat="server"  DataSourceID="SiteMapDataSource1" PathDirection="RootToCurrent">
+                                        </asp:SiteMapPath>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style=" margin-top: 12px; margin-left:15px; position: absolute; float:left; background-color:White; ">
+                            <div style=" float:left; padding-top:2px; padding-left:0px;">
+                                <img src="/CACI/image/search.png" />
+                            </div>
+                            <div style=" float:left; padding-left:3px;">
+                                <asp:ContentPlaceHolder ID="PageDataContent" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table cellpadding="0" cellspacing="0" border="0" style=" margin:24px 0px 0px 0px;" width="100%" >
+                            <tr>
+                                <td>
+                                    <div style=" border:1px solid; border-color: #CECECE; border-style: solid; padding:20px 6px 10px 6px; " >
+                                        <asp:ContentPlaceHolder ID="QueryConditionContent" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="br">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center">
+                                    <asp:ContentPlaceHolder ID="ControlButtonContent" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <tr>
+                        <td class="br">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:8px 0px 0px 15px; position: absolute; float:left; background-color:transparent;">
+                                <asp:ContentPlaceHolder ID="QueryControlContent" runat="server">
+                                    
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            <table cellpadding="0" cellspacing="0" style="border-color:White;">
+                                <tr>
+                                    <td>
+                                        <asp:ContentPlaceHolder ID="QueryResultContent" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tr>
+            </table>
+            <asp:ContentPlaceHolder ID="OtherContentPlace" runat="server">
+            </asp:ContentPlaceHolder>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <script src="/CACI/Scripts/jquery-1.4.1.js" type="text/javascript"></script>
+    <script src="/CACI/Scripts/KDWDValidation.js" type="text/javascript"></script>
+    <script src="/CACI/Scripts/ModalPopup.js" type="text/javascript"></script>
+    <script src="/CACI/Scripts/chnDateScript.js" type="text/javascript"></script>
+    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+    </form>
+</body>
+</html>

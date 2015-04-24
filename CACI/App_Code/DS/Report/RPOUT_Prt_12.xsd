@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RPOUT_Prt_12DS" targetNamespace="http://tempuri.org/RPOUT_Prt_12DS.xsd" xmlns:mstns="http://tempuri.org/RPOUT_Prt_12DS.xsd" xmlns="http://tempuri.org/RPOUT_Prt_12DS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="CACIDB" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CACIDB (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.CACIDB.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CACIDB (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          CONVERT(varchar(12), a.Cnst_CntDate, 111) AS Cnst_CntDate,
+                                (SELECT          Sys_CdText
+                                  FROM               SysCode
+                                  WHERE           (Sys_CdKind = 'C') AND (Sys_CdType = 'I') AND (Sys_CdCode = a.Cnst_CntWay)) AS CntWay, 
+                            b.Com_Name, b.Com_CttName, b.Com_CttTel, b.Com_CttMail, a.Cnst_CntText,
+                                (SELECT          Sys_CdText
+                                  FROM               SysCode AS SysCode_3
+                                  WHERE           (Sys_CdKind = 'C') AND (Sys_CdType = 'Y') AND (Sys_CdCode = a.CntClass_Code)) AS qType,
+                                (SELECT          TOP (1) SysCode_2.Sys_CdText
+                                  FROM               SysCode AS SysCode_2 INNER JOIN
+                                                              CntReply ON SysCode_2.Sys_CdCode = CntReply.CtRepl_RpWay
+                                  WHERE           (SysCode_2.Sys_CdKind = 'C') AND (SysCode_2.Sys_CdType = 'R') AND 
+                                                              (CntReply.Cnst_Code = a.Cnst_Code)
+                                  ORDER BY    CntReply.CtRepl_Date DESC) AS proWsy,
+                                (SELECT          Sys_CdText
+                                  FROM               SysCode AS SysCode_1
+                                  WHERE           (Sys_CdKind = 'N') AND (Sys_CdType = 'S') AND (Sys_CdCode = a.Cnst_Status)) AS CntWay,
+                                (SELECT          TOP (1) UserAcc.User_Name
+                                  FROM               CntReply AS CntReply_1 INNER JOIN
+                                                              UserAcc ON CntReply_1.Rec_InfoID = UserAcc.User_Code AND 
+                                                              CntReply_1.Cnst_Code = a.Cnst_Code
+                                  ORDER BY    CntReply_1.CtRepl_Date DESC) AS CntUser
+FROM              Consulting AS a INNER JOIN
+                            Company AS b ON a.Com_Code = b.Com_Code
+WHERE          (1 = 1)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Cnst_CntDate" DataSetColumn="Cnst_CntDate" />
+              <Mapping SourceColumn="CntWay" DataSetColumn="CntWay" />
+              <Mapping SourceColumn="Com_Name" DataSetColumn="Com_Name" />
+              <Mapping SourceColumn="Com_CttName" DataSetColumn="Com_CttName" />
+              <Mapping SourceColumn="Com_CttTel" DataSetColumn="Com_CttTel" />
+              <Mapping SourceColumn="Com_CttMail" DataSetColumn="Com_CttMail" />
+              <Mapping SourceColumn="Cnst_CntText" DataSetColumn="Cnst_CntText" />
+              <Mapping SourceColumn="qType" DataSetColumn="qType" />
+              <Mapping SourceColumn="proWsy" DataSetColumn="proWsy" />
+              <Mapping SourceColumn="CntWay1" DataSetColumn="CntWay1" />
+              <Mapping SourceColumn="CntUser" DataSetColumn="CntUser" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RPOUT_Prt_12DS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="RPOUT_Prt_12DS" msprop:Generator_UserDSName="RPOUT_Prt_12DS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cnst_CntDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCnst_CntDate" msprop:Generator_ColumnPropNameInRow="Cnst_CntDate" msprop:Generator_ColumnPropNameInTable="Cnst_CntDateColumn" msprop:Generator_UserColumnName="Cnst_CntDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CntWay" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCntWay" msprop:Generator_ColumnPropNameInRow="CntWay" msprop:Generator_ColumnPropNameInTable="CntWayColumn" msprop:Generator_UserColumnName="CntWay" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_Name" msprop:Generator_ColumnVarNameInTable="columnCom_Name" msprop:Generator_ColumnPropNameInRow="Com_Name" msprop:Generator_ColumnPropNameInTable="Com_NameColumn" msprop:Generator_UserColumnName="Com_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_CttName" msprop:Generator_ColumnVarNameInTable="columnCom_CttName" msprop:Generator_ColumnPropNameInRow="Com_CttName" msprop:Generator_ColumnPropNameInTable="Com_CttNameColumn" msprop:Generator_UserColumnName="Com_CttName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_CttTel" msprop:Generator_ColumnVarNameInTable="columnCom_CttTel" msprop:Generator_ColumnPropNameInRow="Com_CttTel" msprop:Generator_ColumnPropNameInTable="Com_CttTelColumn" msprop:Generator_UserColumnName="Com_CttTel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Com_CttMail" msprop:Generator_ColumnVarNameInTable="columnCom_CttMail" msprop:Generator_ColumnPropNameInRow="Com_CttMail" msprop:Generator_ColumnPropNameInTable="Com_CttMailColumn" msprop:Generator_UserColumnName="Com_CttMail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cnst_CntText" msprop:Generator_ColumnVarNameInTable="columnCnst_CntText" msprop:Generator_ColumnPropNameInRow="Cnst_CntText" msprop:Generator_ColumnPropNameInTable="Cnst_CntTextColumn" msprop:Generator_UserColumnName="Cnst_CntText" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="qType" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnqType" msprop:Generator_ColumnPropNameInRow="qType" msprop:Generator_ColumnPropNameInTable="qTypeColumn" msprop:Generator_UserColumnName="qType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="proWsy" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnproWsy" msprop:Generator_ColumnPropNameInRow="proWsy" msprop:Generator_ColumnPropNameInTable="proWsyColumn" msprop:Generator_UserColumnName="proWsy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CntWay1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCntWay1" msprop:Generator_ColumnPropNameInRow="CntWay1" msprop:Generator_ColumnPropNameInTable="CntWay1Column" msprop:Generator_UserColumnName="CntWay1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CntUser" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCntUser" msprop:Generator_ColumnPropNameInRow="CntUser" msprop:Generator_ColumnPropNameInTable="CntUserColumn" msprop:Generator_UserColumnName="CntUser" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RPOUT_Statics_Prt_02" targetNamespace="http://tempuri.org/RPOUT_Statics_Prt_02.xsd" xmlns:mstns="http://tempuri.org/RPOUT_Statics_Prt_02.xsd" xmlns="http://tempuri.org/RPOUT_Statics_Prt_02.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="CACIDB" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CACIDB (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.CACIDB.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SysCodeTableAdapter" GeneratorDataComponentClassName="SysCodeTableAdapter" Name="SysCode" UserDataComponentName="SysCodeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CACIDB (Web.config)" DbObjectName="CACIDB.dbo.SysCode" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          CAST(YEAR(GETDATE()) - 1911 AS nvarchar) + '/' + CAST(MONTH(GETDATE()) AS nvarchar) + '/' + CAST(DAY(GETDATE())
+                             AS nvarchar) AS today, b.Sys_CdText, COUNT(a.Cnst_Code) AS dataNumber, CAST(ROUND(CONVERT(float(10), 
+                            COUNT(a.Cnst_Code)) / CONVERT(float(10),
+                                (SELECT          COUNT(Cnst_Code) AS Expr1
+                                  FROM               Consulting
+                                  WHERE           (YEAR(Cnst_CntDate) = '2012'))) * 100, 2) AS varchar(10)) + '%' AS sta, 
+                            CAST(ROUND(CONVERT(float(10), COUNT(a.Cnst_Code)) / CONVERT(float(10),
+                                (SELECT          COUNT(Cnst_Code) AS Expr1
+                                  FROM               Consulting AS Consulting_1
+                                  WHERE           (YEAR(Cnst_CntDate) = '2012'))) * 100, 2) AS float(10)) AS staNumber
+FROM              SysCode AS b LEFT OUTER JOIN
+                            Consulting AS a ON a.CntClass_Code = b.Sys_CdCode AND YEAR(a.Cnst_CntDate) = '2012'
+WHERE          (b.Sys_CdKind = 'C') AND (b.Sys_CdType = 'Y')
+GROUP BY   a.CntClass_Code, b.Sys_CdText</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="today" DataSetColumn="today" />
+              <Mapping SourceColumn="Sys_CdText" DataSetColumn="Sys_CdText" />
+              <Mapping SourceColumn="dataNumber" DataSetColumn="dataNumber" />
+              <Mapping SourceColumn="sta" DataSetColumn="sta" />
+              <Mapping SourceColumn="staNumber" DataSetColumn="staNumber" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RPOUT_Statics_Prt_02" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="RPOUT_Statics_Prt_02" msprop:Generator_UserDSName="RPOUT_Statics_Prt_02">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SysCode" msprop:Generator_TableClassName="SysCodeDataTable" msprop:Generator_TableVarName="tableSysCode" msprop:Generator_TablePropName="SysCode" msprop:Generator_RowDeletingName="SysCodeRowDeleting" msprop:Generator_UserTableName="SysCode" msprop:Generator_RowChangingName="SysCodeRowChanging" msprop:Generator_RowEvHandlerName="SysCodeRowChangeEventHandler" msprop:Generator_RowDeletedName="SysCodeRowDeleted" msprop:Generator_RowEvArgName="SysCodeRowChangeEvent" msprop:Generator_RowChangedName="SysCodeRowChanged" msprop:Generator_RowClassName="SysCodeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="today" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntoday" msprop:Generator_ColumnPropNameInRow="today" msprop:Generator_ColumnPropNameInTable="todayColumn" msprop:Generator_UserColumnName="today" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="92" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sys_CdText" msprop:Generator_ColumnVarNameInTable="columnSys_CdText" msprop:Generator_ColumnPropNameInRow="Sys_CdText" msprop:Generator_ColumnPropNameInTable="Sys_CdTextColumn" msprop:Generator_UserColumnName="Sys_CdText" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dataNumber" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndataNumber" msprop:Generator_ColumnPropNameInRow="dataNumber" msprop:Generator_ColumnPropNameInTable="dataNumberColumn" msprop:Generator_UserColumnName="dataNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="sta" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsta" msprop:Generator_ColumnPropNameInRow="sta" msprop:Generator_ColumnPropNameInTable="staColumn" msprop:Generator_UserColumnName="sta" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="staNumber" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnstaNumber" msprop:Generator_ColumnPropNameInRow="staNumber" msprop:Generator_ColumnPropNameInTable="staNumberColumn" msprop:Generator_UserColumnName="staNumber" type="xs:float" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

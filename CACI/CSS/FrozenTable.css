@@ -1,0 +1,38 @@
+﻿/*
+新增aspx檔案，記得去除
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
+1.固定左邊的資料行中，設定HeadStyle的CssClass=FixedTitleColumn，以及ItemStyle的CssClass=FixedDataColumn
+2.整個GridView的HeadStyle設定CssClass=FixedTitleRow
+
+*/
+
+.FixedTitleRow   
+{   
+    position: relative;    
+    table-layout:fixed;
+    top: expression(this.offsetParent.scrollTop-2);
+    background-color:White;
+    z-index: 10;   
+}   
+
+.FixedTitleRow th
+{
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+    padding:2px;
+}
+   
+.FixedTitleColumn   
+{   
+    position: relative;    
+    left: expression(this.parentElement.offsetParent.scrollLeft-2);   
+}   
+   
+.FixedDataColumn   
+{   
+    position: relative;   
+    left: expression(this.parentElement.offsetParent.offsetParent.scrollLeft-2);   
+} 

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap id="0" moduleName="首頁" description="回到首頁" target="mainFrame" url="SysMain.aspx">
+  <siteMapNode id="1" title="1.開發範本" moduleName="1.代碼資料管理" description="" target="mainFrame" url="" >
+    <siteMapNode id="2" title="0.1.Master 頁面範例" moduleName="0.1.Master 頁面範例" description="" target="mainFrame" url="Forms/SAMPLE/SM1001Q.aspx" />
+    <siteMapNode id="7" title="0.1.1.Master 頁面範例" moduleName="0.1.1.Master 頁面範例" description="" target="mainFrame" url="Forms/SAMPLE/SM1001_1Q.aspx" />
+    <siteMapNode id="3" title="0.2.Master-Detail 頁面範例" moduleName="0.2.Master-Detail 頁面範例" description="" target="mainFrame" url="Forms/SAMPLE/SM1002Q.aspx" />
+    <siteMapNode id="4" title="0.3.Master-Multi-Detail 頁面範例" moduleName="0.3.Master-Multi-Detail 頁面範例" description="" target="mainFrame" url="Forms/SAMPLE/SM1003Q.aspx" />
+    <siteMapNode id="5" title="0.4.Master-QueryDetail 頁面範例" moduleName="0.4.Master-QueryDetail 頁面範例" description="" target="mainFrame" url="Forms/SAMPLE/SM1004Q.aspx" />
+    <siteMapNode id="6" title="0.5.Master-Query-Multi-Detail 頁面範例" moduleName="0.5.Master-Query-Multi-Detail 頁面範例" description="" target="mainFrame" url="Forms/SAMPLE/SM1005Q.aspx" />
+  </siteMapNode>
+</siteMap>
+
+<!--
+	 <siteMapNode id="309" moduleName="7.6.造字作業" description="" target="mainFrame" url="Forms/SY/SY1008_SCN01.aspx" /> 
+  <siteMapNode id="351" moduleName="8.1委員專區管理" description="" target="mainFrame" url="" >
+  <siteMapNode id="352" moduleName="8.2委員基本資料維護" description="" target="mainFrame" url="Forms/SY/DZ1001_SCN01.aspx" />
+  <siteMapNode id="353" moduleName="8.3委員預約閱卷作業" description="" target="mainFrame" url="Forms/SY/DZ1002_SCN01.aspx" />
+  <siteMapNode id="354" moduleName="8.4系統登入機制" description="" target="mainFrame" url="Forms/SY/DZ1003_SCN01.aspx" />
+  </siteMapNode>
+  <siteMapNode id="401" moduleName="委員自我推薦管理" description="" target="mainFrame" url="" >
+    <siteMapNode id="402" moduleName="委員自我推薦" description="" target="mainFrame" url="Forms/SA/SA1001_SCN01.aspx" />
+  </siteMapNode>
+  -->
